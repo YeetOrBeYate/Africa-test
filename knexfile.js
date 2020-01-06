@@ -9,7 +9,7 @@ module.exports = {
       host:'localhost',
       database: 'africa',
       user: 'africa',
-      password: 'africa'
+      password: process.env['PASSWORD']
     },
     migrations:{
       directory: "./data/migrations"

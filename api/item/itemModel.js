@@ -2,7 +2,7 @@ const db = require('../../data/db-config.js')
 
 const getusers = (Uid)=>{
     return db ('africa')
-    .select("id","username","location_id")
+    .select("id","username")
     .from("users")
     .where("id", Uid)
     .first()
