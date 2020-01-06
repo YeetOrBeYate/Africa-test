@@ -10,14 +10,6 @@ exports.up = function(knex) {
         tbl.string('password', 128)
         .notNullable();
 
-        //foreign key
-        tbl.integer('location_id', 128)
-        .unsigned()
-        .references("id")
-        .inTable("location")
-        .notNullable()
-        .onDelete("CASCADE")
-        .onUpdate("CASCADE");
     })
 };
 

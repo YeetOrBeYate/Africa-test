@@ -23,8 +23,8 @@ router.get("/:id",(req,res)=>{
         res.status(200).json({user})
     })
     .catch(err=>{
-        console.log(err)
-        res.status(200).json({err})
+        
+        res.status(404).json({err})
     })
 })
 

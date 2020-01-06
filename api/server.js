@@ -9,8 +9,8 @@ const app = express();
 const restrictedMiddleWare = require("./auth/restricted.js");
 
 app.use(express.json());
-app.use('/users', restrictedMiddleWare, userRouter)
-app.use('/location', restrictedMiddleWare, locationRouter)
+app.use('/users', userRouter)
+app.use('/location', locationRouter)
 app.use('/auth', authRouter);
 app.use('/item', itemRouter);
 

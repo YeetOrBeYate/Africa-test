@@ -4,16 +4,16 @@ const getlocations =(Lid)=>{
     return db('africa')
     .select('*')
     .from('location')
-    .where("id", Lid)
+    .where("user_id", Lid)
 }
 
 const getAllusers = ()=>{
     return db('africa')
-    .select("id","username", "location_id")
+    .select("id","username")
     .from('users')
     .then(async(list)=>{
         return Promise.all(list.map(async(user)=>{
-            const yeet = await getlocations(user.location_id)
+            const yeet = await getlocations(user.id)
             return {...user, locations:yeet}
         })) 
     })
@@ -21,12 +21,12 @@ const getAllusers = ()=>{
 
 const getUser = (id)=>{
     return db('africa')
-    .select('username', 'location_id')
+    .select('id','username')
     .from('users')
     .where("id", id)
     .first()
     .then(async(user)=>{
-        const yate = await getlocations(user.location_id)
+        const yate = await getlocations(user.id)
         return {...user, locations: yate}
     })
 }
